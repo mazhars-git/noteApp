@@ -14,6 +14,8 @@ export default function Signup() {
         <View style={styles.inputArea}>
             <TextInput placeholder='Email Address' style={styles.input}/>
             <TextInput placeholder='Password' secureTextEntry style={styles.input}/>
+            <TextInput placeholder='Full Name' style={styles.input}/>
+            <TextInput placeholder='Age' style={styles.input}/>
         </View>
 
 
