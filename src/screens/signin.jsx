@@ -2,7 +2,7 @@ import { View, Text, SafeAreaView, Image, TextInput, StyleSheet, Pressable} from
 import React from 'react'
 import Button from '../components/Button'
 
-export default function Signin() {
+export default function Signin({navigation}) {
   return (
     <SafeAreaView>
         <Image 
@@ -30,7 +30,7 @@ export default function Signin() {
                 customStyles={{alignSelf: 'center', color: 'white', marginBottom: 20}}
             />
 
-            <Pressable>
+            <Pressable onPress={() =>{navigation.navigate('Signup')}}>
                 <Text>
                     Don't have an account? {" "}
                     <Text style={{color: 'green', fontWeight: 'bold'}}>Sign Up</Text>
@@ -53,5 +53,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#ccc',
         marginBottom: 25,
+        padding: 10
     }
 })
