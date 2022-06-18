@@ -1,5 +1,6 @@
 import { View, Text, SafeAreaView, Image, TextInput, StyleSheet, Pressable} from 'react-native'
 import React from 'react'
+import Button from '../components/Button'
 
 export default function Signin() {
   return (
@@ -15,9 +16,28 @@ export default function Signin() {
             <TextInput placeholder='Password' secureTextEntry style={styles.input}/>
         </View>
 
-        <Pressable>
-            <Text></Text>
-        </Pressable>
+
+        <View 
+            style={{
+                flex: 1, 
+                justifyContent: 'flex-end',
+                alignItems: 'center'
+                
+                }}
+        >
+            <Button 
+                title={"login"} 
+                customStyles={{alignSelf: 'center', color: 'white', marginBottom: 20}}
+            />
+
+            <Pressable>
+                <Text>
+                    Don't have an account? {" "}
+                    <Text style={{color: 'green', fontWeight: 'bold'}}>Sign Up</Text>
+                </Text>
+            </Pressable>
+        </View>
+        
 
     </SafeAreaView>
   )
