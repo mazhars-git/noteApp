@@ -1,6 +1,7 @@
 import { View, Text, SafeAreaView, Image, TextInput, StyleSheet, Pressable} from 'react-native'
 import React from 'react'
 import Button from '../components/Button'
+import Input from './../components/Input';
 
 export default function Signin({navigation}) {
   return (
@@ -12,8 +13,8 @@ export default function Signin({navigation}) {
         <Text style={{fontWeight: 'bold', textAlign: 'center'}}>Never forget your notes</Text>
 
         <View style={styles.inputArea}>
-            <TextInput placeholder='Email Address' style={styles.input}/>
-            <TextInput placeholder='Password' secureTextEntry style={styles.input}/>
+            <Input placeholder='Email Address' />
+            <Input placeholder='Password' secureTextEntry />
         </View>
 
 
@@ -48,11 +49,4 @@ const styles = StyleSheet.create({
         paddingHorizontal: 26,
         paddingVertical: 26
     },
-    input: {
-        height: 48,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
-        marginBottom: 25,
-        padding: 10
-    }
 })
