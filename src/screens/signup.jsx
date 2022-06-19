@@ -24,6 +24,10 @@ export default function Signup() {
             <Input placeholder='Age' />
         </View>
 
+        <View style={{marginVertical: 20, marginLeft: 20}}>
+            <Text style={{fontWeight: 'bold'}}>Select Gender</Text>
+        </View>
+
         {
             genderOptions.map((option) =>{
 
