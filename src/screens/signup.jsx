@@ -1,11 +1,14 @@
 import { View, Text, SafeAreaView, Image, TextInput, StyleSheet, Pressable} from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../components/Button'
 import Input from './../components/Input';
 
+const genderOptions = ["Male", "Female"];
+
+
 export default function Signup() {
 
-    const selected = true;
+    const [gender, setGender] = useState(null);
 
   return (
     <SafeAreaView>
@@ -21,25 +24,31 @@ export default function Signup() {
             <Input placeholder='Age' />
         </View>
 
-        <Pressable style={styles.radioContainer}>
-            <View style={styles.outerCircle}>
-                <View style={styles.innerCircle}/>
-            </View>
-            <Text style={styles.radioText}>Male</Text> 
-        </Pressable>
+        {
+            genderOptions.map((option) =>{
 
-        <Pressable style={styles.radioContainer}>
-            <View 
-                style={[styles.outerCircle, selected && styles.selectedOuterCircle]}
-            >
-                <View 
-                    style={[styles.innerCircle, selected 
-                    && 
-                    styles.selectedInnerCircle]}
-                />
-            </View>
-            <Text style={styles.radioText}>Female</Text> 
-        </Pressable>
+            const selected = option === gender;
+
+            return(
+                <Pressable 
+                    style={styles.radioContainer}
+                    onPress = {() => setGender(option)}
+                    key={option}
+                >
+                    <View 
+                        style={[styles.outerCircle, selected && styles.selectedOuterCircle]}
+                    >
+                        <View 
+                            style={[styles.innerCircle, selected 
+                            && 
+                            styles.selectedInnerCircle]}
+                        />
+                    </View>
+                    <Text style={styles.radioText}>{option}</Text> 
+                </Pressable>
+            );
+            })
+        }
 
 
         <View 
