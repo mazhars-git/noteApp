@@ -10,7 +10,6 @@ export default function Signup() {
             source= {require('../../assets/signup.jpg')} 
             style={{alignSelf: 'center', width: "60%", height: 400}}
         />
-        <Text style={{fontWeight: 'bold', textAlign: 'center'}}>Never forget your notes</Text>
 
         <View style={styles.inputArea}>
             <Input placeholder='Email Address' />
@@ -18,6 +17,13 @@ export default function Signup() {
             <Input placeholder='Full Name' />
             <Input placeholder='Age' />
         </View>
+
+        <Pressable>
+            <View>
+                <Text>Male</Text> 
+                <Text>Female</Text> 
+            </View>
+        </Pressable>
 
 
         <View 
