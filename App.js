@@ -6,8 +6,8 @@ import Signin from './src/screens/signin';
 import Signup from './src/screens/signup';
 import Create from './src/screens/create';
 import Edit from './src/screens/edit';
-
 import { initializeApp } from "firebase/app";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyB5Uh6V4KxB0I9I0tUYYiajT-tDpTKNZGI",

@@ -2,13 +2,36 @@ import { View, Text, SafeAreaView, Image, TextInput, StyleSheet, Pressable} from
 import React, { useState } from 'react'
 import Button from '../components/Button'
 import Input from './../components/Input';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+const auth = getAuth();
 
 const genderOptions = ["Male", "Female"];
+
 
 
 export default function Signup() {
 
     const [gender, setGender] = useState(null);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [age, setAge] = useState("");
+
+
+    const signup = () => {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log("user created:", user)
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+        });
+    }
 
   return (
     <SafeAreaView>
@@ -18,10 +41,10 @@ export default function Signup() {
         />
 
         <View style={styles.inputArea}>
-            <Input placeholder='Email Address' />
-            <Input placeholder='Password' secureTextEntry />
-            <Input placeholder='Full Name' />
-            <Input placeholder='Age' />
+            <Input placeholder='Email Address' onChangeText={(text) => setEmail(text)} />
+            <Input placeholder='Password' secureTextEntry onChangeText={(text) => setPassword(text)} />
+            <Input placeholder='Full Name' onChangeText={(text) => setName(text)} />
+            <Input placeholder='Age' onChangeText={(text) => setAge(text)} />
         </View>
 
         <View style={{marginVertical: 20, marginLeft: 20}}>
@@ -30,7 +53,6 @@ export default function Signup() {
 
         {
             genderOptions.map((option) =>{
-
             const selected = option === gender;
 
             return(
@@ -66,6 +88,7 @@ export default function Signup() {
             <Button 
                 title={"Sign Up"} 
                 customStyles={{alignSelf: 'center', color: 'white', marginBottom: 20}}
+                onPress= {signup}
             />
 
             <Pressable>
